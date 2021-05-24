@@ -3,3 +3,5 @@ FROM amazonlinux:2
 RUN yum -y update --skip-broken \
     && yum -y upgrade \
     && yum install -y amazon-linux-extras
+    
+RUN amazon-linux-extras | grep -i python
