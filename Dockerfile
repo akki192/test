@@ -43,6 +43,7 @@ RUN set -ex \
 	\
 	&& ldconfig \
 	\
+	&& python3.9 --version \
 	&& python3 --version
 
 # make some useful symlinks that are expected to exist
