@@ -31,9 +31,7 @@ RUN set -ex \
 		--with-system-expat \
 		--with-system-ffi \
 		--without-ensurepip \
-	&& make -j "$(nproc)" \
-	&& make install \
-	&& rm -rf /usr/src/python \
+	&& make altinstall \
 	\
 	&& find /usr/local -depth \
 		\( \
