@@ -19,8 +19,10 @@ RUN wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz \
     
 RUN python3.9 --version
 
-RUN update-alternatives --install /usr/bin/python python \
-    && update-alternatives --list | grep python
+RUN ls -l /usr/bin/python* \
+    && update-alternatives --install /usr/bin/python python /usr/bin/python3.9 2 \
+    && update-alternatives --display python \
+    && update-alternatives --set python /usr/bin/python3.9
 
 RUN python3.9 --version \
     && python --version
