@@ -15,5 +15,10 @@ RUN wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz \
     && cd Python-3.9*/ \
     && ./configure --enable-optimizations \
     && make altinstall \
-    && python3.8 --version \
-    && pip -version
+    && python --version \
+    && python3.9 --version \
+    && pip -version \
+    && sudo update-alternatives --install /usr/bin/python python \
+    && sudo update-alternatives --list | grep python \
+    && python --version \
+    && pip -version \
