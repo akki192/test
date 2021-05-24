@@ -1,0 +1,4 @@
+FROM ashetgaonkar/amzlinux2-python3.9:1.0
+
+RUN python3.9 -V \
+    && pip3.9 -V
