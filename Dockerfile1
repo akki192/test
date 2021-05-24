@@ -17,15 +17,9 @@ RUN wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz \
     && ./configure --enable-optimizations \
     && make altinstall
     
-RUN python3.9 --version
-
-RUN ls -l /usr/bin/python* \
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.9 2 \
-    && update-alternatives --display python \
-    && update-alternatives --set python /usr/bin/python3.9
-
 RUN python3.9 --version \
-    && python --version
+    && python --version \
+    && python3.9 -m pip --version
 
-RUN python3.9 -m pip --version \
-    && python -m pip --version
+RUN python3.9 -m pip install -U pip \
+    && python3.9 -m pip --version
