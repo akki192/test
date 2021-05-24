@@ -17,11 +17,9 @@ RUN wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz \
     && make altinstall
     
 RUN python --version \
-    && python3.9 --version \
-    && pip -version
+    && python3.9 --version
 
 RUN sudo update-alternatives --install /usr/bin/python python \
     && sudo update-alternatives --list | grep python
 
-RUN python --version \
-    && pip -version \
+RUN python --version
