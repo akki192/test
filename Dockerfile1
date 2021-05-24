@@ -2,14 +2,7 @@ FROM amazonlinux:2
 
 RUN yum -y update --skip-broken \
     && yum -y upgrade \
-    && yum install -y amazon-linux-extras
-    
-RUN amazon-linux-extras | grep -i python
-
-RUN python --version
-
-RUN yum -y groupinstall "Development Tools" \
-    && yum -y install openssl-devel bzip2-devel libffi-devel wget
+    && yum install -y shadow-utils unzip tar xz gzip gcc openssl-devel bzip2-devel libffi-devel make wget
 
 RUN wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz \
     && tar xvf Python-3.9.5.tgz \
