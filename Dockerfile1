@@ -6,6 +6,8 @@ RUN yum -y update --skip-broken \
     
 RUN amazon-linux-extras | grep -i python
 
+RUN python --version \
+    && python -m pip --version
 
 RUN yum -y groupinstall "Development Tools" \
     && yum -y install openssl-devel bzip2-devel libffi-devel wget
@@ -16,10 +18,11 @@ RUN wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz \
     && ./configure --enable-optimizations \
     && make altinstall
     
+RUN python3.9 --version \
+    && python3.9 -m pip --version
+
+RUN update-alternatives --install /usr/bin/python python \
+    && update-alternatives --list | grep python
+
 RUN python --version \
-    && python3.9 --version
-
-RUN sudo update-alternatives --install /usr/bin/python python \
-    && sudo update-alternatives --list | grep python
-
-RUN python --version
+    && python -m pip --version
